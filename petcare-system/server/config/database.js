@@ -4,7 +4,7 @@ const oracledb = require('oracledb');
 const dbConfig = {
   user: 'petcare',
   password: 'petcare123',
-  connectString: 'localhost:1521/xe' // Cambia según tu configuración
+  connectString: 'localhost:1521/xepdb1' // Cambia según tu configuración
 };
 
 let pool;

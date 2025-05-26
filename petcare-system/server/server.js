@@ -17,6 +17,8 @@ app.use(express.static(path.join(__dirname, '../client')));
 // Importar rutas
 const duenosRoutes = require('./routes/duenos');
 app.use('/api/duenos', duenosRoutes);
+const veterinariosRoutes = require('./routes/veterinarios');
+app.use('/api/veterinarios', veterinariosRoutes);
 
 // Manejo de errores global
 app.use((err, req, res, next) => {
