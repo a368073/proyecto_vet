@@ -1,10 +1,12 @@
-# Ignorar dependencias
+# Ignorar dependencias de Node
 node_modules/
 
-# Archivos de entorno
+# Variables de entorno
 .env
 
-# Otros comunes
+# Archivos temporales
 .DS_Store
+
+# Carpeta de distribución
 dist/
 build/
