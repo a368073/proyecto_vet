@@ -1,9 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const duenosController = require('../controllers/duenosController');
+const veterinariosController = require('../controllers/veterinarios.controller');
 
-router.post('/', duenosController.createDueno);
-//que salgan en la lista
-router.get('/', duenosController.getAllDuenos);
+router.get('/', veterinariosController.getAllVeterinarios);
+router.post('/', veterinariosController.createVeterinario);
 
 module.exports = router;
