@@ -116,3 +116,4 @@ async function cargarCitas() {
     console.error('Error cargando citas:', error);
   }
 }
+
