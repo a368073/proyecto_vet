@@ -473,10 +473,12 @@
   }
   });
   // Función para cargar la lista de mascotas en tabla
-  async function cargarMascotasEnSelect() {
+// Función para cargar la lista de mascotas en el select de citas
+async function cargarSelectData() {
   try {
     const res = await fetch('/api/mascotas');
-    const mascotas = await res.json();
+    const mascotasResp = await res.json();
+    const mascotas = mascotasResp.data || mascotasResp; // <-- Usa el array correcto
     const select = document.getElementById('cita-mascota');
     select.innerHTML = '<option value="">Seleccione mascota...</option>';
     mascotas.forEach(mascota => {
@@ -489,21 +491,20 @@
     console.error('Error cargando mascotas:', err);
   }
 }
-
     ////////////no probado
     // Función para cargar veterinarios
 async function cargarVeterinarios() {
   try {
     const response = await fetch('/api/veterinarios');
-    const veterinarios = await response.json();
+    const veterinariosResp = await response.json();
     
+    const veterinarios = veterinariosResp.data || veterinariosResp;
     const select = document.getElementById('cita-veterinario');
     select.innerHTML = '<option value="">Seleccione veterinario...</option>';
-    
     veterinarios.forEach(vet => {
       const option = document.createElement('option');
-      option.value = vet.ID_VETERINARIO;
-      option.textContent = `${vet.NOMBRE} (${vet.ESPECIALIDAD})`;
+      option.value = vet.id;
+      option.textContent = `${vet.nombre} (${vet.especialidad})`;
       select.appendChild(option);
     });
   } catch (error) {
@@ -533,13 +534,13 @@ async function cargarConsultas() {
 
 // Eventos para cargar datos cuando se muestre cada sección
 document.querySelector('.nav-item[data-target="citas"]').addEventListener('click', async () => {
-  await await cargarMascotasEnSelect();
+  await await cargarSelectData();
   await cargarVeterinarios();
-  await cargarCitas();
+  //await cargarCitas();
 });
 
 document.querySelector('.nav-item[data-target="consultas"]').addEventListener('click', async () => {
-  await await cargarMascotasEnSelect();
+  await await cargarSelectData();
   await cargarConsultasLista();
 });
 
@@ -548,36 +549,7 @@ document.querySelector('.nav-item[data-target="tratamientos"]').addEventListener
   await cargarTratamientos();
 });
 
-// Manejador para el formulario de citas
-document.getElementById('form-cita').addEventListener('submit', async (e) => {
-  e.preventDefault();
-  
-  const citaData = {
-    id_mascota: document.getElementById('cita-mascota').value,
-    id_veterinario: document.getElementById('cita-veterinario').value,
-    fecha: document.getElementById('cita-fecha').value,
-    hora: document.getElementById('cita-hora').value,
-    motivo: document.getElementById('cita-motivo').value
-  };
-  
-  try {
-    const res = await fetch('/api/citas', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(citaData)
-    });
-    
-    const data = await res.json();
-    alert('Cita agendada exitosamente');
-    document.getElementById('form-cita').reset();
-    await cargarCitas();
-  } catch (err) {
-    console.error('Error:', err);
-    alert('Error al agendar cita');
-  }
-});
+
 
 // Manejador para el formulario de tratamientos
 document.getElementById('form-tratamiento').addEventListener('submit', async (e) => {

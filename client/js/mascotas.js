@@ -41,15 +41,14 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 async function cargarDuenosEnSelect() {
   try {
-    const response = await fetch('http://localhost:3000/api/mascotas/duenos');
-    const result = await response.json();
-    
-    if (!response.ok) throw new Error(result.message || 'Error cargando dueños');
-
+    const res = await fetch('/api/mascotas/duenos');
+    const duenosResp = await res.json();
+    // Si la respuesta es { data: [...] }, usa duenosResp.data; si es un array directo, usa duenosResp
+    const duenos = duenosResp.data || duenosResp;
     const select = document.getElementById('mascota-dueno');
-    select.innerHTML = '<option value="">Seleccione dueño...</option>';
-    
-    result.data.forEach(dueno => {
+    select.innerHTML = '<option value="">Seleccione dueño...</option>'; // Limpia el select
+
+    duenos.forEach(dueno => {
       const option = document.createElement('option');
       option.value = dueno.id;
       option.textContent = dueno.nombre;
@@ -64,7 +63,6 @@ async function cargarMascotas() {
   try {
     const response = await fetch('http://localhost:3000/api/mascotas');
     const result = await response.json();
-    
     if (!response.ok) throw new Error(result.message || 'Error cargando mascotas');
 
     const tbody = document.querySelector('#mascotas .table tbody');
