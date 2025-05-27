@@ -20,11 +20,14 @@ const mascotasRoutes = require('./routes/mascotas');
 const veterinariosRoutes = require('./routes/veterinarios');
 const consultasRoutes = require('./routes/consultas');
 const citasRoutes = require('./routes/citas');
+const tratamientosRoutes = require('./routes/tratamientos');
+
 app.use('/api/duenos', duenosRoutes);
 app.use('/api/mascotas', mascotasRoutes); 
 app.use('/api/veterinarios', veterinariosRoutes);
 app.use('/api/citas', citasRoutes);
 app.use('/api/consultas', consultasRoutes);
+app.use('/api/tratamientos', tratamientosRoutes);
 
 // Manejo de errores global
 app.use((err, req, res, next) => {
