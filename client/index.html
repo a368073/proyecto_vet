@@ -382,33 +382,61 @@
     });
     
     // Manejo del formulario de dueños
+    // Manejo del formulario de dueños - Este es el único manejador que debe existir
     document.getElementById('form-dueno').addEventListener('submit', async (e) => {
       e.preventDefault();
-      
-      const duenoData = {
-        nombre: document.getElementById('nombre').value,
-        telefono: document.getElementById('telefono').value,
-        correo: document.getElementById('correo').value,
+  
+     const duenoData = {
+      nombre: document.getElementById('nombre').value,
+      telefono: document.getElementById('telefono').value,
+      correo: document.getElementById('correo').value,
       };
-      
-      try {
+  
+       try {
         const res = await fetch('/api/duenos', {
           method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(duenoData)
-        });
-        
-        const data = await res.json();
-        alert('Dueño registrado con éxito');
-        document.getElementById('form-dueno').reset();
-        // Aquí podrías actualizar la lista de dueños
+         headers: {
+           'Content-Type': 'application/json'
+      },
+        body: JSON.stringify(duenoData)
+     });
+    
+      const data = await res.json();
+      // Mostrar notificación con el ID
+      alert(`Dueño registrado con éxito. ID: ${data.id}`);
+       document.getElementById('form-dueno').reset();
+       await cargarListaDuenos(); // Actualizar la lista de dueños
       } catch (err) {
         console.error('Error:', err);
-        alert('Error al registrar dueño');
-      }
+         alert('Error al registrar dueño');
+     }
     });
+
+// Función para cargar la lista de dueños en tabla
+async function cargarListaDuenos() {
+  try {
+    const res = await fetch('/api/duenos');
+    const duenos = await res.json();
+    const tbody = document.querySelector('#duenos .table tbody');
+    tbody.innerHTML = '';
+
+    duenos.forEach(dueno => {
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td>${dueno.id}</td>
+        <td>${dueno.nombre}</td>
+        <td>${dueno.telefono}</td>
+        <td>${dueno.correo}</td>
+      `;
+      tbody.appendChild(tr);
+    });
+  } catch (err) {
+    console.error('Error cargando dueños:', err);
+  }
+}
+
+// Cargar lista de dueños al iniciar
+window.addEventListener('DOMContentLoaded', cargarListaDuenos);
     
     
     
@@ -436,19 +464,7 @@
       console.error('Error cargando dueños:', err);
     }
   }
-  window.addEventListener('DOMContentLoaded', cargarListaDuenos);
-  document.getElementById('form-dueno').addEventListener('submit', async (e) => {
-  
-    try {
-      const res = await fetch('/api/duenos', { /* ... */ });
-      const data = await res.json();
-      alert('Dueño registrado con éxito');
-      document.getElementById('form-dueno').reset();
-      await cargarListaDuenos(); // <-- Actualiza la lista después de registrar
-      } catch (err) {
-    
-  }
-  });
+
   // Función para cargar la lista de mascotas en tabla
 // Función para cargar la lista de mascotas en el select de citas
 async function cargarSelectData() {
