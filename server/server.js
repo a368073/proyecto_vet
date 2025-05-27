@@ -18,11 +18,13 @@ app.use(express.static(path.join(__dirname, '../client')));
 const duenosRoutes = require('./routes/duenos');
 const mascotasRoutes = require('./routes/mascotas'); 
 const veterinariosRoutes = require('./routes/veterinarios');
+const consultasRoutes = require('./routes/consultas');
 const citasRoutes = require('./routes/citas');
 app.use('/api/duenos', duenosRoutes);
 app.use('/api/mascotas', mascotasRoutes); 
 app.use('/api/veterinarios', veterinariosRoutes);
 app.use('/api/citas', citasRoutes);
+app.use('/api/consultas', consultasRoutes);
 
 // Manejo de errores global
 app.use((err, req, res, next) => {
