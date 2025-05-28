@@ -51,22 +51,67 @@
     <!-- Sección de Inicio (Dashboard) -->
     <section id="dashboard" class="content-section active">
       <div class="card">
-        <h2 class="card-title">Resumen del Sistema</h2>
-        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;">
-          <div class="card" style="text-align: center;">
-            <h3>Dueños Registrados</h3>
-            <p style="font-size: 2rem; color: var(--primary);">24</p>
-          </div>
-          <div class="card" style="text-align: center;">
-            <h3>Mascotas</h3>
-            <p style="font-size: 2rem; color: var(--secondary);">42</p>
-          </div>
-          <div class="card" style="text-align: center;">
-            <h3>Citas Hoy</h3>
-            <p style="font-size: 2rem; color: var(--warning);">5</p>
-          </div>
-        </div>
+        <div class="card">
+  <div class="welcome-banner" style="background: url('https://images.unsplash.com/photo-1477884213360-7e9d7dcc1e48?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center/cover; height: 200px; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; text-align: center;">
+    <div style="background: rgba(0, 0, 0, 0.5); padding: 1rem; border-radius: 10px;">
+      <h2>¡Bienvenido a PetCare!</h2>
+      <p>Gestiona tu clínica veterinaria de manera eficiente</p>
+    </div>
+  </div>
+</div>
+<div class="card">
+  <h2 class="card-title">Nuestra Razón de Ser</h2>
+  <div class="mission-vision-grid">
+    <!-- Misión -->
+    <div class="mission-card">
+      <div class="icon-title">
+        <i class="fas fa-bullseye"></i>
+        <h3>Misión</h3>
       </div>
+      <p>Brindar cuidado veterinario excepcional con tecnología innovadora, amor por los animales y compromiso con sus dueños.</p>
+    </div>
+    
+    <!-- Visión -->
+    <div class="vision-card">
+      <div class="icon-title">
+        <i class="fas fa-eye"></i>
+        <h3>Visión</h3>
+      </div>
+      <p>Ser la clínica veterinaria líder en Latinoamérica, reconocida por nuestra excelencia médica y calidez humana.</p>
+    </div>
+  </div>
+</div>
+<div class="card">
+  <h2 class="card-title">Lo que dicen nuestros clientes</h2>
+  <div class="testimonials">
+    <div class="testimonial active">
+      <p>"¡Salvaron a mi pulguitas! El mejor servicio veterinario."</p>
+      <span>- Juan Pérez</span>
+    </div>
+    <div class="testimonial">
+      <p>"Profesionales y amorosos con mi gato botitas, !que a todo dar!."</p>
+      <span>- Ana García</span>
+    </div>
+    <button class="testimonial-btn prev">❮</button>
+    <button class="testimonial-btn next">❯</button>
+  </div>
+</div>
+  <h2 class="card-title">Resumen del Sistema</h2>
+  <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;">
+    <div class="card-stats" style="background: linear-gradient(135deg, var(--primary) 0%, #00a884 100%);">
+      <h3>Dueños Registrados</h3>
+      <p style="font-size: 2rem;">24</p>
+    </div>
+    <div class="card-stats" style="background: linear-gradient(135deg, var(--secondary) 0%, #0984e3 100%);">
+      <h3>Mascotas</h3>
+      <p style="font-size: 2rem;">42</p>
+    </div>
+    <div class="card-stats" style="background: linear-gradient(135deg, var(--warning) 0%, #e17055 100%);">
+      <h3>Citas Hoy</h3>
+      <p style="font-size: 2rem;">5</p>
+    </div>
+  </div>
+</div>
       
       <div class="card">
         <h2 class="card-title">Petcare</h2>

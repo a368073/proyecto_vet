@@ -212,3 +212,91 @@ body {
   from { opacity: 0; }
   to { opacity: 1; }
 }
+
+.card-stats {
+  background: linear-gradient(135deg, var(--primary) 0%, #00a884 100%);
+  color: white;
+  border-radius: 10px;
+  padding: 1.5rem;
+  text-align: center;
+  transition: transform 0.3s;
+}
+.card-stats:hover {
+  transform: translateY(-5px);
+}
+:root {
+  --primary: #6c5ce7;  /* Cambia a morado */
+  --secondary: #fd79a8;  /* Cambia a rosa */
+  --dark: #2d3436;
+  --light: #f5f6fa;
+}
+/* MISION & VISION */
+.mission-vision-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.mission-card, .vision-card {
+  background: white;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  border-top: 4px solid var(--primary);
+  transition: transform 0.3s;
+}
+
+.vision-card {
+  border-top-color: var(--secondary);
+}
+
+.mission-card:hover, .vision-card:hover {
+  transform: translateY(-5px);
+}
+
+.icon-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  color: var(--dark);
+}
+
+.icon-title i {
+  font-size: 1.5rem;
+  color: var(--primary);
+}
+
+.vision-card .icon-title i {
+  color: var(--secondary);
+}
+
+.icon-title h3 {
+  font-size: 1.2rem;
+  margin: 0;
+}
+.testimonials {
+  position: relative;
+  min-height: 150px;
+}
+.testimonial {
+  display: none;
+  text-align: center;
+  padding: 1rem;
+}
+.testimonial.active {
+  display: block;
+  animation: fadeIn 0.5s;
+}
+.testimonial-btn {
+  position: absolute;
+  top: 50%;
+  background: rgba(0,0,0,0.5);
+  color: white;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+  border-radius: 50%;
+}
+.prev { left: 10px; }
+.next { right: 10px; }
