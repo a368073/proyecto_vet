@@ -65,6 +65,7 @@ localhost:3000
 
 ## Manuales
 Consulta el [Manual de Usuario](ManualUsuarioPetCare.pdf) para una guía de como utilizar la interfaz.
+
 Consulta el [Manual de Usuario](ManualTecnicoPetCare.pdf) para más información sobre cómo se desarrolló la aplicacion.
 
 ## Autores
