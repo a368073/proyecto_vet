@@ -1,0 +1,405 @@
+:root {
+  --primary: #00b894;
+  --secondary: #0984e3;
+  --dark: #2d3436;
+  --light: #f5f6fa;
+  --danger: #d63031;
+  --warning: #fdcb6e;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f1f2f6;
+}
+
+/* Menú lateral */
+.sidebar {
+  width: 250px;
+  background: white;
+  box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+  padding: 1.5rem 0;
+}
+
+.logo {
+  text-align: center;
+  padding: 0 1.5rem 1.5rem;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 1rem;
+}
+
+.logo h2 {
+  color: var(--primary);
+}
+
+.nav-menu {
+  list-style: none;
+}
+
+.nav-item {
+  margin: 0.5rem 0;
+  padding: 0.5rem 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  border-left: 3px solid transparent;
+}
+
+.nav-item:hover {
+  background-color: #f1f2f6;
+}
+
+.nav-item.active {
+  border-left: 3px solid var(--primary);
+  background-color: rgba(0, 184, 148, 0.1);
+}
+
+.nav-item i {
+  margin-right: 10px;
+  color: var(--dark);
+}
+
+/* Contenido principal */
+.main-content {
+  flex: 1;
+  padding: 2rem;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.page-title {
+  color: var(--dark);
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--primary);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+/* Tarjetas de contenido */
+.card {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.card-title {
+  margin-bottom: 1rem;
+  color: var(--dark);
+  font-size: 1.2rem;
+}
+
+/* Formularios */
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--dark);
+  font-weight: 500;
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: border 0.3s;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #00a884;
+}
+
+/* Tablas */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th, .table td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.table th {
+  background-color: #f8f9fa;
+  color: var(--dark);
+  font-weight: 600;
+}
+
+.table tr:hover {
+  background-color: #f8f9fa;
+}
+
+.badge {
+  padding: 0.35rem 0.65rem;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.badge-success {
+  background-color: rgba(0, 184, 148, 0.1);
+  color: var(--primary);
+}
+
+.badge-warning {
+  background-color: rgba(253, 203, 110, 0.1);
+  color: #e17055;
+}
+
+/* Secciones ocultas */
+.content-section {
+  display: none;
+}
+
+.content-section.active {
+  display: block;
+  animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.card-stats {
+  background: linear-gradient(135deg, var(--primary) 0%, #00a884 100%);
+  color: white;
+  border-radius: 10px;
+  padding: 1.5rem;
+  text-align: center;
+  transition: transform 0.3s;
+}
+.card-stats:hover {
+  transform: translateY(-5px);
+}
+:root {
+  --primary: #6c5ce7;  /* Cambia a morado */
+  --secondary: #fd79a8;  /* Cambia a rosa */
+  --dark: #2d3436;
+  --light: #f5f6fa;
+}
+/* MISION & VISION */
+.mission-vision-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.mission-card, .vision-card {
+  background: white;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  border-top: 4px solid var(--primary);
+  transition: transform 0.3s;
+}
+
+.vision-card {
+  border-top-color: var(--secondary);
+}
+
+.mission-card:hover, .vision-card:hover {
+  transform: translateY(-5px);
+}
+
+.icon-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  color: var(--dark);
+}
+
+.icon-title i {
+  font-size: 1.5rem;
+  color: var(--primary);
+}
+
+.vision-card .icon-title i {
+  color: var(--secondary);
+}
+
+.icon-title h3 {
+  font-size: 1.2rem;
+  margin: 0;
+}
+.testimonials {
+  position: relative;
+  min-height: 150px;
+}
+.testimonial {
+  display: none;
+  text-align: center;
+  padding: 1rem;
+}
+.testimonial.active {
+  display: block;
+  animation: fadeIn 0.5s;
+}
+.testimonial-btn {
+  position: absolute;
+  top: 50%;
+  background: rgba(0,0,0,0.5);
+  color: white;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+  border-radius: 50%;
+}
+.prev { left: 10px; }
+.next { right: 10px; }
+/* === Interruptor (Toggle) === */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 24px;
+  margin-right: 10px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 24px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: var(--primary);
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+/* === Modo Oscuro Global === */
+body.dark-mode {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+.dark-mode .sidebar {
+  background-color: #1e1e1e;
+  border-right: 1px solid #333;
+}
+
+.dark-mode .logo h2 {
+  color: var(--primary);
+}
+
+.dark-mode .nav-item {
+  color: #e0e0e0;
+}
+
+.dark-mode .nav-item:hover {
+  background-color: #333;
+}
+
+.dark-mode .nav-item.active {
+  background-color: rgba(108, 92, 231, 0.2);
+}
+
+.dark-mode .card {
+  background-color: #1e1e1e;
+  border: 1px solid #333;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.dark-mode .card-title,
+.dark-mode .table th,
+.dark-mode .form-group label {
+  color: #f5f6fa;
+}
+
+.dark-mode .form-control {
+  background-color: #333;
+  color: #fff;
+  border: 1px solid #444;
+}
+
+.dark-mode .table {
+  color: #e0e0e0;
+}
+
+.dark-mode .table th {
+  background-color: #333;
+}
+
+.dark-mode .table tr:hover {
+  background-color: #333;
+}

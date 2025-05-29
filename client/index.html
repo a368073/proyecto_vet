@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PetCare - Sistema Veterinario</title>
+  <!-- Cambia las rutas a relativas -->
+  <link rel="stylesheet" href="./css/estilos.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+  <!-- Menú lateral -->
+  <aside class="sidebar">
+    <div class="logo">
+      <h2><i class="fas fa-paw"></i> PetCare</h2>
+    </div>
+    <ul class="nav-menu">
+      <li class="nav-item active" data-target="dashboard">
+        <i class="fas fa-home"></i> Inicio
+      </li>
+      <li class="nav-item" data-target="duenos">
+        <i class="fas fa-users"></i> Dueños
+      </li>
+      <li class="nav-item" data-target="mascotas">
+        <i class="fas fa-dog"></i> Mascotas
+      </li>
+      <li class="nav-item" data-target="citas">
+        <i class="fas fa-calendar-check"></i> Citas
+      </li>
+      <li class="nav-item" data-target="consultas">
+        <i class="fas fa-clipboard-list"></i> Consultas
+      </li>
+      <li class="nav-item" data-target="tratamientos">
+        <i class="fas fa-pills"></i> Tratamientos
+      </li>
+      <li class="nav-item" data-target="veterinarios">
+        <i class="fas fa-user-md"></i> Veterinarios
+      </li>
+    </ul>
+</div>
+ <div class="user-info">
+  <label class="switch">
+    <input type="checkbox" id="darkModeToggle">
+    <span class="slider round"></span>
+  </label>
+  <span>Modo Oscuro</span>
+</div>
+
+  </aside>
+
+  <!-- Contenido principal -->
+  <main class="main-content">
+    <div class="header">
+      <h1 class="page-title">Bienvenido a PetCare</h1>
+      <div class="user-info">
+
+      </div>
+    </div>
+ 
+
+    <!-- Sección de Inicio (Dashboard) -->
+    <section id="dashboard" class="content-section active">
+      <div class="card">
+        <div class="card">
+  <div class="welcome-banner" style="background: url('https://images.unsplash.com/photo-1477884213360-7e9d7dcc1e48?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center/cover; height: 200px; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; text-align: center;">
+    <div style="background: rgba(0, 0, 0, 0.5); padding: 1rem; border-radius: 10px;">
+      <h2>¡Bienvenido a PetCare!</h2>
+      <p>Gestiona tu clínica veterinaria de manera eficiente</p>
+    </div>
+  </div>
+</div>
+<div class="card">
+  <h2 class="card-title">Nuestra Razón de Ser</h2>
+  <div class="mission-vision-grid">
+    <!-- Misión -->
+    <div class="mission-card">
+      <div class="icon-title">
+        <i class="fas fa-bullseye"></i>
+        <h3>Misión</h3>
+      </div>
+      <p>Brindar cuidado veterinario excepcional con tecnología innovadora, amor por los animales y compromiso con sus dueños.</p>
+    </div>
+    
+    <!-- Visión -->
+    <div class="vision-card">
+      <div class="icon-title">
+        <i class="fas fa-eye"></i>
+        <h3>Visión</h3>
+      </div>
+      <p>Ser la clínica veterinaria líder en Latinoamérica, reconocida por nuestra excelencia médica y calidez humana.</p>
+    </div>
+  </div>
+</div>
+<div class="card">
+  <h2 class="card-title">Lo que dicen nuestros clientes</h2>
+  <div class="testimonials">
+    <div class="testimonial active">
+      <p>"¡Salvaron a mi pulguitas! El mejor servicio veterinario."</p>
+      <span>- Juan Pérez</span>
+    </div>
+    <div class="testimonial">
+      <p>"Profesionales y amorosos con mi gato botitas, !que a todo dar!."</p>
+      <span>- Ana García</span>
+    </div>
+    <button class="testimonial-btn prev">❮</button>
+    <button class="testimonial-btn next">❯</button>
+  </div>
+</div>
+</div>    
+    </section>
+
+    <!-- Sección de Dueños -->
+    <section id="duenos" class="content-section">
+      <div class="card">
+        <h2 class="card-title">Registrar Nuevo Dueño</h2>
+        <form id="form-dueno">
+          <div class="form-group">
+            <label for="nombre">Nombre Completo</label>
+            <input type="text" id="nombre" class="form-control" placeholder="Nombre completo" required>
+          </div>
+          <div class="form-group">
+            <label for="telefono">Teléfono</label>
+            <input type="text" id="telefono" class="form-control" placeholder="Teléfono" required>
+          </div>
+          <div class="form-group">
+            <label for="correo">Correo Electrónico</label>
+            <input type="email" id="correo" class="form-control" placeholder="Correo electrónico" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Registrar Dueño</button>
+        </form>
+      </div>
+      
+      <div class="card">
+        <h2 class="card-title">Lista de Dueños</h2>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nombre</th>
+              <th>Teléfono</th>
+              <th>Correo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Los datos se cargarán dinámicamente desde tu API -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Sección de Mascotas -->
+    <section id="mascotas" class="content-section">
+      <div class="card">
+        <h2 class="card-title">Registrar Nueva Mascota</h2>
+        <form id="form-mascota">
+          <div class="form-group">
+            <label for="mascota-nombre">Nombre</label>
+            <input type="text" id="mascota-nombre" class="form-control" placeholder="Nombre de la mascota" required>
+          </div>
+          <div class="form-group">
+            <label for="mascota-especie">Especie</label>
+            <select id="mascota-especie" class="form-control" required>
+              <option value="">Seleccione...</option>
+              <option value="Perro">Perro</option>
+              <option value="Gato">Gato</option>
+              <option value="Ave">Ave</option>
+              <option value="Roedor">Roedor</option>
+              <option value="Reptil">Reptil</option>
+              <option value="Otro">Otro</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="mascota-raza">Raza</label>
+            <input type="text" id="mascota-raza" class="form-control" placeholder="Raza">
+          </div>
+          <div class="form-group">
+            <label for="mascota-edad">Edad (años)</label>
+            <input type="number" id="mascota-edad" class="form-control" placeholder="Edad">
+          </div>
+          <div class="form-group">
+            <label for="mascota-dueno">Dueño</label>
+            <select id="mascota-dueno" class="form-control" required>
+              <option value="">Seleccione dueño...</option>
+              <!-- Se llenará dinámicamente desde tu API -->
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary">Registrar Mascota</button>
+        </form>
+      </div>
+      
+      <div class="card">
+        <h2 class="card-title">Lista de Mascotas</h2>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nombre</th>
+              <th>Especie</th>
+              <th>Raza</th>
+              <th>Edad</th>
+              <th>Dueño</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Los datos se cargarán dinámicamente desde tu API -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Sección de Citas -->
+<section id="citas" class="content-section">
+  <div class="card">
+    <h2 class="card-title">Agendar Nueva Cita</h2>
+    <form id="form-cita">
+      <div class="form-group">
+        <label for="cita-mascota">Mascota</label>
+        <select id="cita-mascota" class="form-control" required>
+          <option value="">Seleccione mascota...</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="cita-veterinario">Veterinario</label>
+        <select id="cita-veterinario" class="form-control" required>
+          <option value="">Seleccione veterinario...</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="cita-fecha">Fecha</label>
+        <input type="date" id="cita-fecha" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="cita-hora">Hora</label>
+        <input type="time" id="cita-hora" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="cita-motivo">Motivo</label>
+        <input type="text" id="cita-motivo" class="form-control" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Agendar Cita</button>
+    </form>
+  </div>
+  
+  <div class="card">
+    <h2 class="card-title">Próximas Citas</h2>
+    <table class="table" id="tabla-citas">
+      <thead>
+        <tr>
+          <th>Mascota</th>
+          <th>Veterinario</th>
+          <th>Fecha</th>
+          <th>Hora</th>
+          <th>Motivo</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Datos se cargarán dinámicamente -->
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- Sección de Consultas -->
+<section id="consultas" class="content-section">
+  <div class="card">
+    <h2 class="card-title">Registrar Nueva Consulta</h2>
+    <form id="form-consulta">
+      <div class="form-group">
+        <label for="consulta-mascota">Mascota</label>
+        <select id="consulta-mascota" class="form-control" required>
+          <option value="">Seleccione mascota...</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="consulta-diagnostico">Diagnóstico</label>
+        <textarea id="consulta-diagnostico" class="form-control" rows="3" required></textarea>
+      </div>
+      <div class="form-group">
+        <label for="consulta-observaciones">Observaciones</label>
+        <textarea id="consulta-observaciones" class="form-control" rows="3"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Registrar Consulta</button>
+    </form>
+  </div>
+  
+  <div class="card">
+    <h2 class="card-title">Últimas Consultas</h2>
+    <table class="table" id="tabla-consultas">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Mascota</th>
+          <th>Fecha</th>
+          <th>Diagnóstico</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Datos se cargarán dinámicamente -->
+      </tbody>
+    </table>
+  </div>
+</section>
+
+
+
+<!-- Sección de Tratamientos -->
+<section id="tratamientos" class="content-section">
+  <div class="card">
+    <h2 class="card-title">Registrar Nuevo Tratamiento</h2>
+    <form id="form-tratamiento">
+      <div class="form-group">
+        <label for="tratamiento-consulta">Consulta</label>
+        <select id="tratamiento-consulta" class="form-control" required>
+          <option value="">Seleccione consulta...</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="tratamiento-medicamento">Medicamento</label>
+        <input type="text" id="tratamiento-medicamento" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="tratamiento-dosis">Dosis</label>
+        <input type="text" id="tratamiento-dosis" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="tratamiento-duracion">Duración</label>
+        <input type="text" id="tratamiento-duracion" class="form-control" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Registrar Tratamiento</button>
+    </form>
+  </div>
+  
+  <div class="card">
+    <h2 class="card-title">Tratamientos Activos</h2>
+    <table class="table" id="tabla-tratamientos">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>ID Consulta</th>
+          <th>Mascota</th>
+          <th>Medicamento</th>
+          <th>Dosis</th>
+          <th>Duración</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Datos se cargarán dinámicamente -->
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- Sección de Veterinarios -->
+<section id="veterinarios" class="content-section">
+  <div class="card">
+    <h2 class="card-title">Registrar Nuevo Veterinario</h2>
+    <form id="form-veterinario">
+      <div class="form-group">
+        <label for="veterinario-nombre">Nombre Completo</label>
+        <input type="text" id="veterinario-nombre" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="veterinario-especialidad">Especialidad</label>
+        <input type="text" id="veterinario-especialidad" class="form-control" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Registrar Veterinario</button>
+    </form>
+  </div>
+  
+  <div class="card">
+    <h2 class="card-title">Veterinarios Registrados</h2>
+    <table class="table" id="tabla-veterinarios">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Especialidad</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Datos se cargarán dinámicamente -->
+      </tbody>
+    </table>
+  </div>
+</section>
+
+
+</main>
+
+  <script>
+    // Navegación entre secciones
+    document.querySelectorAll('.nav-item').forEach(item => {
+      item.addEventListener('click', function() {
+        // Remover clase active de todos los items
+        document.querySelectorAll('.nav-item').forEach(navItem => {
+          navItem.classList.remove('active');
+        });
+        
+        // Agregar clase active al item clickeado
+        this.classList.add('active');
+        
+        // Ocultar todas las secciones
+        document.querySelectorAll('.content-section').forEach(section => {
+          section.classList.remove('active');
+        });
+        
+        // Mostrar la sección correspondiente
+        const target = this.getAttribute('data-target');
+        document.getElementById(target).classList.add('active');
+      });
+    });
+    
+    // Manejo del formulario de dueños
+    // Manejo del formulario de dueños - Este es el único manejador que debe existir
+    document.getElementById('form-dueno').addEventListener('submit', async (e) => {
+      e.preventDefault();
+  
+     const duenoData = {
+      nombre: document.getElementById('nombre').value,
+      telefono: document.getElementById('telefono').value,
+      correo: document.getElementById('correo').value,
+      };
+  
+       try {
+        const res = await fetch('/api/duenos', {
+          method: 'POST',
+         headers: {
+           'Content-Type': 'application/json'
+      },
+        body: JSON.stringify(duenoData)
+     });
+    
+      const data = await res.json();
+      // Mostrar notificación con el ID
+      alert(`Dueño registrado con éxito. ID: ${data.id}`);
+       document.getElementById('form-dueno').reset();
+       await cargarListaDuenos(); // Actualizar la lista de dueños
+      } catch (err) {
+        console.error('Error:', err);
+         alert('Error al registrar dueño');
+     }
+    });
+
+// Función para cargar la lista de dueños en tabla
+async function cargarListaDuenos() {
+  try {
+    const res = await fetch('/api/duenos');
+    const duenos = await res.json();
+    const tbody = document.querySelector('#duenos .table tbody');
+    tbody.innerHTML = '';
+
+    duenos.forEach(dueno => {
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td>${dueno.id}</td>
+        <td>${dueno.nombre}</td>
+        <td>${dueno.telefono}</td>
+        <td>${dueno.correo}</td>
+      `;
+      tbody.appendChild(tr);
+    });
+  } catch (err) {
+    console.error('Error cargando dueños:', err);
+  }
+}
+
+// Cargar lista de dueños al iniciar
+window.addEventListener('DOMContentLoaded', cargarListaDuenos);
+    
+    
+    
+    
+       
+  // Función para cargar la lista de dueños en tabla
+  async function cargarListaDuenos() {
+    try {
+      const res = await fetch('/api/duenos');
+      const duenos = await res.json();
+      const tbody = document.querySelector('#duenos .table tbody');
+      tbody.innerHTML = '';
+
+      duenos.forEach(dueno => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td>${dueno.id}</td>
+          <td>${dueno.nombre}</td>
+          <td>${dueno.telefono}</td>
+          <td>${dueno.correo}</td>
+        `;
+        tbody.appendChild(tr);
+      });
+    } catch (err) {
+      console.error('Error cargando dueños:', err);
+    }
+  }
+
+  // Función para cargar la lista de mascotas en tabla
+// Función para cargar la lista de mascotas en el select de citas
+async function cargarSelectData() {
+  try {
+    const res = await fetch('/api/mascotas');
+    const mascotasResp = await res.json();
+    const mascotas = mascotasResp.data || mascotasResp; // <-- Usa el array correcto
+    const select = document.getElementById('cita-mascota');
+    select.innerHTML = '<option value="">Seleccione mascota...</option>';
+    mascotas.forEach(mascota => {
+      const option = document.createElement('option');
+      option.value = mascota.id;
+      option.textContent = `${mascota.nombre} (${mascota.especie}) - Dueño: ${mascota.dueno}`;
+      select.appendChild(option);
+    });
+  } catch (err) {
+    console.error('Error cargando mascotas:', err);
+  }
+}
+    ////////////no probado
+    // Función para cargar veterinarios
+async function cargarVeterinarios() {
+  try {
+    const response = await fetch('/api/veterinarios');
+    const veterinariosResp = await response.json();
+    
+    const veterinarios = veterinariosResp.data || veterinariosResp;
+    const select = document.getElementById('cita-veterinario');
+    select.innerHTML = '<option value="">Seleccione veterinario...</option>';
+    veterinarios.forEach(vet => {
+      const option = document.createElement('option');
+      option.value = vet.id;
+      option.textContent = `${vet.nombre} (${vet.especialidad})`;
+      select.appendChild(option);
+    });
+  } catch (error) {
+    console.error('Error cargando veterinarios:', error);
+  }
+}
+
+// Función para cargar consultas
+async function cargarConsultas() {
+  try {
+    const response = await fetch('/api/consultas');
+    const consultasResp = await response.json();
+
+    // Usa el array 
+    const consultas = consultasResp.data || consultasResp;
+
+    const select = document.getElementById('tratamiento-consulta');
+    select.innerHTML = '<option value="">Seleccione consulta...</option>';
+
+    consultas.forEach(consulta => {
+      const option = document.createElement('option');
+      option.value = consulta.id; // Usar 'id' según tu modelo
+      option.textContent = `Consulta #${consulta.id} - ${consulta.mascota} (${consulta.fecha})`;
+      select.appendChild(option);
+    });
+  } catch (error) {
+    console.error('Error cargando consultas:', error);
+  }
+}
+
+// Eventos para cargar datos cuando se muestre cada sección
+document.querySelector('.nav-item[data-target="citas"]').addEventListener('click', async () => {
+  await await cargarSelectData();
+  await cargarVeterinarios();
+  //await cargarCitas(); creo que no es necesario
+});
+
+document.querySelector('.nav-item[data-target="consultas"]').addEventListener('click', async () => {
+  await await cargarSelectData();
+  //await cargarConsultasLista(); creo que no es necesario
+});
+
+document.querySelector('.nav-item[data-target="tratamientos"]').addEventListener('click', async () => {
+  await cargarConsultas();
+  await cargarTratamientos();
+});
+
+
+
+
+  </script>
+  <script src="./js/app.js"></script>
+  <script src="./js/mascotas.js"></script>
+  <script src="./js/tratamientos.js"></script>
+  
+  <!-- Al final del body, carga los módulos -->
+  <script type="module" src="./js/main.js"></script>
+  <script type="module" src="./js/consultas.js"></script>
+  <script type="module" src="./js/veterinarios.js"></script>
+  
+</body>
+</html>
