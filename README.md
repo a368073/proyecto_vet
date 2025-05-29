@@ -63,13 +63,11 @@ localhost:3000
 - `package-lock.json`
 - `package.json`
 
+## Manuales
+Consulta el [Manual de Usuario](/proyecto_vet/manualUsruarioPetCare.pdf) para más información sobre cómo usar la app.
+
+
 ## Autores
 - Rebeca Portillo Saenzpardo
 - Manuel Martínez Martínez
 - Pablo Gael Torres
-
-
-
-
-
-
