@@ -64,7 +64,7 @@ localhost:3000
 - `package.json`
 
 ## Manuales
-Consulta el [Manual de Usuario](/proyecto_vet/manualUsruarioPetCare.pdf) para más información sobre cómo usar la app.
+Consulta el [Manual de Usuario](ManualUsuarioPetCare.pdf) para más información sobre cómo usar la app.
 
 
 ## Autores
