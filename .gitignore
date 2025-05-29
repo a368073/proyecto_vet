@@ -8,4 +8,4 @@ node_modules/
 .DS_Store
 
 # Archivos sql
-sql-scripts/
+sql_scripts/
