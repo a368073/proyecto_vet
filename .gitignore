@@ -6,6 +6,3 @@ node_modules/
 
 # Archivos temporales
 .DS_Store
-
-# Archivos sql
-sql_scripts/
